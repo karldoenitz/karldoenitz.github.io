@@ -24,11 +24,11 @@
     <section>
         <div class="container">
             <ul class="docs-nav">
-                <li><strong>快速入门</strong></li>
+                <li><strong><a href="#glance" style="color: black">快速入门</a></strong></li>
                 <li><a href="#welcome" class="cc-active">简介</a></li>
                 <li><a href="#benefits" class="cc-active">安装及示例</a></li>
                 <li class="separator"></li>
-                <li><strong>Web架构</strong></li>
+                <li><strong><a href="#webframe" style="color: black">Web架构</a></strong></li>
                 <li><a href="#view_type" class="cc-active">TigoWeb.Handler</a></li>
                 <li><a href="#animation_style" class="cc-active">TigoWeb.URLpattern</a></li>
                 <li><a href="#bars_text" class="cc-active">TigoWeb.Application</a></li>
@@ -36,7 +36,7 @@
             </ul>
             <div class="docs-content">
                 <img src="https://github.com/karldoenitz/Tigo/raw/master/documentation/tigo_logo.jpg"/>
-                <h2> 快速入门</h2>
+                <h2> <span id="glance">快速入门</span></h2>
                 <h3 id="welcome"> 简介 </h3>
                 <p> Tigo 框架是一款使用go语言开发的基于net/http库的web应用框架。</p>
 
@@ -96,7 +96,7 @@ func main() {
     "value": "Hello Tigo!"
 }
                 </pre>
-                <h2> Web架构 </h2>
+                <h2> <span id="webframe">Web架构</span> </h2>
                 <p>
                     TigoWeb包是Tigo框架的核心包，里面包含了Tigo框架的整体Web架构。主要有如下3大模块，及若干细小模块（这些细小模块此处不做赘述，有兴趣可以查看源码）。
                 </p>
