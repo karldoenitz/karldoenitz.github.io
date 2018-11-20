@@ -7,7 +7,6 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Tigo 框架</title>
-    <link rel="alternate" type="application/rss+xml" title="" href="feed/index.html">
     <link href="http://fonts.googleapis.com/css?family=Raleway:700,300" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/prettify.css">
@@ -24,19 +23,19 @@
     <section>
         <div class="container">
             <ul class="docs-nav">
-                <li><strong><a href="#glance" style="color: black">快速入门</a></strong></li>
+                <li><strong style="color: black">快速入门</strong></li>
                 <li><a href="#welcome" class="cc-active">简介</a></li>
                 <li><a href="#benefits" class="cc-active">安装及示例</a></li>
                 <li class="separator"></li>
-                <li><strong><a href="#webframe" style="color: black">Web架构</a></strong></li>
-                <li><a href="#view_type" class="cc-active">TigoWeb.Handler</a></li>
-                <li><a href="#animation_style" class="cc-active">TigoWeb.URLpattern</a></li>
-                <li><a href="#bars_text" class="cc-active">TigoWeb.Application</a></li>
-                <li><strong>logger模块</strong></li>
+                <li><strong style="color: black">API文档</strong></li>
+                <li><a href="#zh_doc" class="cc-active">中文文档</a></li>
+                <li class="separator"></li>
+                <li><strong style="color: black">实例</strong></li>
+                <li><a href="#sample_list" class="cc-active">实例列表</a></li>
             </ul>
             <div class="docs-content">
                 <img src="https://github.com/karldoenitz/Tigo/raw/master/documentation/tigo_logo.jpg"/>
-                <h2> <span id="glance">快速入门</span></h2>
+                <h2> <span id="glance">📖快速入门</span></h2>
                 <h3 id="welcome"> 简介 </h3>
                 <p> Tigo 框架是一款使用go语言开发的基于net/http库的web应用框架。</p>
 
@@ -51,7 +50,7 @@
                 <h3 id="benefits"> 安装及示例</h3>
                 <ul>
                     <li>安装：&nbsp;<code style="background-color: #f5f5f5">&nbsp;&nbsp;go get github.com/karldoenitz/Tigo/...&nbsp;&nbsp;</code></li>
-                    <li>示例：&nbsp;返回一个简单的<code style="background-color: #f5f5f5">Hello Tigo！</code></li>
+                    <li>示例：&nbsp;返回一个简单的<code style="background-color: #f5f5f5">  Hello Tigo！</code></li>
                 </ul>
                 <p>
                     Demo如下：
@@ -96,171 +95,146 @@ func main() {
     "value": "Hello Tigo!"
 }
                 </pre>
-                <h2> <span id="webframe">Web架构</span> </h2>
-                <p>
-                    TigoWeb包是Tigo框架的核心包，里面包含了Tigo框架的整体Web架构。主要有如下3大模块，及若干细小模块（这些细小模块此处不做赘述，有兴趣可以查看源码）。
-                </p>
+                <p class="separator"></p>
+                <h2> <span id="webframe">📖API文档</span> </h2>
+                <h3 id="zh_doc"> 中文文档 </h3>
+                <p>文档索引</p>
                 <ul>
-                    <li>TigoWeb.Handler</li>
-                    <li>TigoWeb.URLpattern</li>
-                    <li>TigoWeb.Application</li>
+                    <li md-pos="192-1877"><a target="_blank" href="./documentation.html#TigoWeb" md-pos="194-213">TigoWeb</a>
+                        <ul>
+                            <li md-pos="216-1118"><a target="_blank" href="./documentation.html#BaseHandler" md-pos="218-250">type BaseHandler</a>
+                                <ul>
+                                    <li md-pos="255-290"><a target="_blank" href="./documentation.html#InitHandler" md-pos="257-289">func InitHandler</a></li>
+                                    <li md-pos="294-331"><a target="_blank" href="./documentation.html#GetJsonValue" md-pos="296-330">func GetJsonValue</a></li>
+                                    <li md-pos="335-372"><a target="_blank" href="./documentation.html#GetParameter" md-pos="337-371">func GetParameter</a></li>
+                                    <li md-pos="376-407"><a target="_blank" href="./documentation.html#GetHeader" md-pos="378-406">func GetHeader</a></li>
+                                    <li md-pos="411-442"><a target="_blank" href="./documentation.html#SetHeader" md-pos="413-441">func SetHeader</a></li>
+                                    <li md-pos="446-477"><a target="_blank" href="./documentation.html#GetCookie" md-pos="448-476">func GetCookie</a></li>
+                                    <li md-pos="481-512"><a target="_blank" href="./documentation.html#SetCookie" md-pos="483-511">func SetCookie</a></li>
+                                    <li md-pos="516-559"><a target="_blank" href="./documentation.html#GetSecureCookie" md-pos="518-558">func GetSecureCookie</a></li>
+                                    <li md-pos="563-606"><a target="_blank" href="./documentation.html#SetSecureCookie" md-pos="565-605">func SetSecureCookie</a></li>
+                                    <li md-pos="610-653"><a target="_blank" href="./documentation.html#GetCookieObject" md-pos="612-652">func GetCookieObject</a></li>
+                                    <li md-pos="657-700"><a target="_blank" href="./documentation.html#SetCookieObject" md-pos="659-699">func SetCookieObject</a></li>
+                                    <li md-pos="704-739"><a target="_blank" href="./documentation.html#ClearCookie" md-pos="706-738">func ClearCookie</a></li>
+                                    <li md-pos="743-784"><a target="_blank" href="./documentation.html#ClearAllCookie" md-pos="745-783">func ClearAllCookie</a></li>
+                                    <li md-pos="788-817"><a target="_blank" href="./documentation.html#Redirect" md-pos="790-816">func Redirect</a></li>
+                                    <li md-pos="821-872"><a target="_blank" href="./documentation.html#RedirectPermanently" md-pos="823-871">func RedirectPermanently</a></li>
+                                    <li md-pos="876-901"><a target="_blank" href="./documentation.html#Render" md-pos="878-900">func Render</a></li>
+                                    <li md-pos="905-946"><a target="_blank" href="./documentation.html#ResponseAsHtml" md-pos="907-945">func ResponseAsHtml</a></li>
+                                    <li md-pos="950-991"><a target="_blank" href="./documentation.html#ResponseAsText" md-pos="952-990">func ResponseAsText</a></li>
+                                    <li md-pos="995-1036"><a target="_blank" href="./documentation.html#ResponseAsJson" md-pos="997-1035">func ResponseAsJson</a></li>
+                                    <li md-pos="1040-1065"><a target="_blank" href="./documentation.html#ToJson" md-pos="1042-1064">func ToJson</a></li>
+                                    <li md-pos="1069-1118"><a target="_blank" href="./documentation.html#DumpHttpRequestMsg" md-pos="1071-1117">func DumpHttpRequestMsg</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1120-1227"><a target="_blank" href="./documentation.html#UrlPattern" md-pos="1122-1152">type UrlPattern</a>
+                                <ul>
+                                    <li md-pos="1157-1202"><a target="_blank" href="./documentation.html#AppendUrlPattern" md-pos="1159-1201">func AppendUrlPattern</a></li>
+                                    <li md-pos="1206-1227"><a target="_blank" href="./documentation.html#Init" md-pos="1208-1226">func Init</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1229-1287"><a target="_blank" href="./documentation.html#Application" md-pos="1231-1263">type Application</a>
+                                <ul>
+                                    <li md-pos="1268-1287"><a target="_blank" href="./documentation.html#Run" md-pos="1270-1286">func Run</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1289-1573"><a target="_blank" href="./documentation.html#Cookie" md-pos="1291-1313">type Cookie</a>
+                                <ul>
+                                    <li md-pos="1318-1371"><a target="_blank" href="./documentation.html#GetCookieEncodeValue" md-pos="1320-1370">func GetCookieEncodeValue</a></li>
+                                    <li md-pos="1375-1428"><a target="_blank" href="./documentation.html#GetCookieDecodeValue" md-pos="1377-1427">func GetCookieDecodeValue</a></li>
+                                    <li md-pos="1432-1469"><a target="_blank" href="./documentation.html#ToHttpCookie" md-pos="1434-1468">func ToHttpCookie</a></li>
+                                    <li md-pos="1473-1528"><a target="_blank" href="./documentation.html#ConvertFromHttpCookie" md-pos="1475-1527">func ConvertFromHttpCookie</a></li>
+                                    <li md-pos="1532-1573"><a target="_blank" href="./documentation.html#SetSecurityKey" md-pos="1534-1572">func SetSecurityKey</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1575-1676"><a target="_blank" href="./documentation.html#BaseResponse" md-pos="1577-1611">type BaseResponse</a>
+                                <ul>
+                                    <li md-pos="1616-1639"><a target="_blank" href="./documentation.html#Print" md-pos="1618-1638">func Print</a></li>
+                                    <li md-pos="1643-1676"><a target="_blank" href="./documentation.html#ResponseToJson" md-pos="1645-1675">func ToJson</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1678-1746"><a target="_blank" href="./documentation.html#GlobalConfig" md-pos="1680-1714">type GlobalConfig</a>
+                                <ul>
+                                    <li md-pos="1719-1746"><a target="_blank" href="./documentation.html#GlobalInit" md-pos="1721-1745">func Init</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1748-1877"><a target="_blank" href="./documentation.html#utils" md-pos="1750-1765">utils</a>
+                                <ul>
+                                    <li md-pos="1770-1797"><a target="_blank" href="./documentation.html#Encrypt" md-pos="1772-1796">func Encrypt</a></li>
+                                    <li md-pos="1801-1828"><a target="_blank" href="./documentation.html#Decrypt" md-pos="1803-1827">func Decrypt</a></li>
+                                    <li md-pos="1832-1877"><a target="_blank" href="./documentation.html#InitGlobalConfig" md-pos="1834-1876">func InitGlobalConfig</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li md-pos="1877-2317"><a target="_blank" href="./documentation.html#logger" md-pos="1879-1896">logger</a>
+                        <ul>
+                            <li md-pos="1899-1918"><a target="_blank" href="./documentation.html#logDemo" md-pos="1901-1917">Demo</a></li>
+                            <li md-pos="1920-1982"><a target="_blank" href="./documentation.html#LogStructure" md-pos="1922-1948">structure</a>
+                                <ul>
+                                    <li md-pos="1953-1982"><a target="_blank" href="./documentation.html#LogLevel" md-pos="1955-1981">type LogLevel</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="1984-2317"><a target="_blank" href="./documentation.html#loggerFunctions" md-pos="1986-2015">functions</a>
+                                <ul>
+                                    <li md-pos="2020-2053"><a target="_blank" href="./documentation.html#SetLogPath" md-pos="2022-2052">func SetLogPath</a></li>
+                                    <li md-pos="2057-2118"><a target="_blank" href="./documentation.html#InitLoggerWithConfigFile" md-pos="2059-2117">func InitLoggerWithConfigFile</a></li>
+                                    <li md-pos="2122-2175"><a target="_blank" href="./documentation.html#InitLoggerWithObject" md-pos="2124-2174">func InitLoggerWithObject</a></li>
+                                    <li md-pos="2179-2210"><a target="_blank" href="./documentation.html#InitTrace" md-pos="2181-2209">func InitTrace</a></li>
+                                    <li md-pos="2214-2243"><a target="_blank" href="./documentation.html#InitInfo" md-pos="2216-2242">func InitInfo</a></li>
+                                    <li md-pos="2247-2282"><a target="_blank" href="./documentation.html#InitWarning" md-pos="2249-2281">func InitWarning</a></li>
+                                    <li md-pos="2286-2317"><a target="_blank" href="./documentation.html#InitError" md-pos="2288-2316">func InitError</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li md-pos="2317-2659"><a target="_blank" href="./documentation.html#request" md-pos="2319-2338">request</a>
+                        <ul>
+                            <li md-pos="2341-2410"><a target="_blank" href="./documentation.html#httpResponse" md-pos="2343-2373">type Response</a>
+                                <ul>
+                                    <li md-pos="2378-2410"><a target="_blank" href="./documentation.html#ToContentStr" md-pos="2380-2409">ToContentStr</a></li>
+                                </ul>
+                            </li>
+                            <li md-pos="2412-2659"><a target="_blank" href="./documentation.html#requestFunctions" md-pos="2414-2444">functions</a>
+                                <ul>
+                                    <li md-pos="2449-2476"><a target="_blank" href="./documentation.html#Request" md-pos="2451-2475">func Request</a></li>
+                                    <li md-pos="2480-2499"><a target="_blank" href="./documentation.html#Get" md-pos="2482-2498">func Get</a></li>
+                                    <li md-pos="2503-2524"><a target="_blank" href="./documentation.html#Post" md-pos="2505-2523">func Post</a></li>
+                                    <li md-pos="2528-2547"><a target="_blank" href="./documentation.html#Put" md-pos="2530-2546">func Put</a></li>
+                                    <li md-pos="2551-2574"><a target="_blank" href="./documentation.html#Patch" md-pos="2553-2573">func Patch</a></li>
+                                    <li md-pos="2578-2599"><a target="_blank" href="./documentation.html#Head" md-pos="2580-2598">func Head</a></li>
+                                    <li md-pos="2603-2630"><a target="_blank" href="./documentation.html#Options" md-pos="2605-2629">func Options</a></li>
+                                    <li md-pos="2634-2659"><a target="_blank" href="./documentation.html#Delete" md-pos="2636-2658">func Delete</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-                <p> 模块使用信息如下所示</p>
-                <h3 id="view_type"> TigoWeb.Handler</h3>
+                <p class="separator"></p>
+                <h2>📖实例</h2>
+                <h3 id="sample_list">实例列表</h3>
                 <ul>
-                    <li>Detailed View</li>
-                </ul>
-
-                <pre class="prettyprint">&lt;script&gt;
-      	$(document).ready(function (){
-        $('#DefaultOptions').opineo('results.php', {curvalue:3,
-            view: 'detailed',
-            animation_speed: 'super',
-            show_total_votes_counter: false,
-            show_overall_rating: true});
-         })
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Compact View</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-	$(document).ready(function (){
-	$('#CompactView').opineo('results.php',
-    	    {curvalue:3, view: 'compact',
-    	    animation_speed: 'super'});
-	})
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Mini View</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#MiniView').opineo('results.php', {curvalue:0, view: 'mini', callback: myCallback});
-    })	
-&lt;/script&gt;</pre>
-                <h3 id="animation_style"> Animation Style</h3>
-                <ul>
-                    <li>Slow</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'slow'});
-    })	
-&lt;/script&gt; </pre>
-                <ul>
-                    <li>Medium</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'mild'});
-    })	
-&lt;/script&gt; </pre>
-                <ul>
-                    <li>Fast</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'fast'});
-    })	
- &lt;/script&gt;</pre>
-                <ul>
-                    <li>Super Fast</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'super'});
-    })	
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Ultra Fast</li>
-                </ul>
-                <pre class="prettyprint"> &lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', animation_speed:'ultra fast'});
-    })	
-&lt;/script&gt; </pre>
-                <h3 id="bars_text"> Bars Text</h3>
-                <ul>
-                    <li>Show</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:true});
-    })	
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Hide</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:false});
-    })	
- &lt;/script&gt;</pre>
-                <h3 id="vote_counter"> Vote Counter</h3>
-                <ul>
-                    <li>Show</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', show_votes_counter:true});
-    })	
-&lt;/script&gt; </pre>
-                <ul>
-                    <li>Hide</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', votes_label:false});
-    })	
-&lt;/script&gt;</pre>
-                <h3 id="rating_icons"> Rating Icons</h3>
-                <ul>
-                    <li>Colored</li>
-                    <li>Grey</li>
-                </ul>
-                <h3 id="rating_titles"> Rating Titles</h3>
-                <ul>
-                    <li>Text For First Star</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Hate It'});
-    })	
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Text For Second Star</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_2_text:'Don't Like It'});
-    })	
-&lt;/script&gt; </pre>
-                <ul>
-                    <li>Text For Third Star</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Its OK'});
-    })	
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Text For Fourth Star</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Like It'});
-    })	
-&lt;/script&gt;</pre>
-                <ul>
-                    <li>Text For Fifth Star</li>
-                </ul>
-                <pre class="prettyprint">&lt;script&gt;
-    $(document).ready(function (){
-    $('#opineo').opineo('results.php', {curvalue:0, view: 'mini', star_1_text:'Love It'});
-    })	
-&lt;/script&gt;</pre>
-                <h3 id="bar_colors"> Bar Colors</h3>
-                <ul>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
+                    <li>Colors of Red Bar</li>
+                    <li>Colors of Yellow Bar</li>
+                    <li>Colors of Green Bar</li>
                     <li>Colors of Red Bar</li>
                     <li>Colors of Yellow Bar</li>
                     <li>Colors of Green Bar</li>

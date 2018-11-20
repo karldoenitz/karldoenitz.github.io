@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./statics/css/multimarkdown_layout-fx.css">
+    <style>
+        .container { width: 100%; }
+        .wiki-container { width: 100%; }
+        .wiki-body { width: 100%; }
+    </style>
+    <link rel="stylesheet" href="./statics/css/multimarkdown_default-fx.css">
+    <link rel="stylesheet" href="./statics/css/multimarkdown_hljs-default.css">
+    <title>中文文档</title>
+    <link rel="shortcut icon" href=" ./img/favicon.ico" />
+    <script src="./statics/js/multimarkdown_highlight.pack.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="readme" class="boxed-group">
+        <h3>
+            <a href="" name="markdown-page" id="markdown-page" class="page-anchor"><span class="bookicon octicon-book"></span>
+            </a>  API使用文档
+        </h3>
+        <article class="markdown-body">
+            <h1 id="文档for-english-documentation-click-here" md-pos="2-127"><a href="#文档for-english-documentation-click-here" name="文档for-english-documentation-click-here" class="anchor"><span class="octicon octicon-link"></span></a>文档</h1>
+
+            <h1 id="tigotigoweb" md-pos="2661-2695"><a href="#tigotigoweb" name="tigotigoweb" class="anchor"><span class="octicon octicon-link"></span></a>Tigo.TigoWeb<a name="TigoWeb"></a></h1>
+            <p md-pos="2696-2760">TigoWeb是Tigo框架中的核心部分，Handler、URLpattern以及Application三大核心组件包含于此。</p>
+            <h2 id="type-basehandler" md-pos="2763-2805"><a href="#type-basehandler" name="type-basehandler" class="anchor"><span class="octicon octicon-link"></span></a>type BaseHandler<a name="BaseHandler"></a></h2>
+            <pre md-pos="2806-2917"><code class="go" md-pos="2812-2913">type BaseHandler struct {
+    ResponseWriter  http.ResponseWriter
+    Request        *http.Request
+}
+</code></pre>
+            <p md-pos="2917-2973"><code md-pos="2920-2931">BaseHandler</code>是一切handler的父结构体，开发者开发的handler必须继承此结构体。</p>
+            <h3 id="func-basehandlerinithandler" md-pos="2977-3033"><a href="#func-basehandlerinithandler" name="func-basehandlerinithandler" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)InitHandler<a name="InitHandler"></a></h3>
+            <pre md-pos="3034-3146"><code class="go" md-pos="3040-3142">func (baseHandler *BaseHandler)InitHandler(responseWriter http.ResponseWriter, request *http.Request)
+</code></pre>
+            <p md-pos="3146-3210"><code md-pos="3149-3160">InitHandler</code>方法是初始化结构体必须要使用的方法，所有的Handler中的Handle方法必须调用此方法。</p>
+            <h3 id="func-basehandlergetjsonvalue" md-pos="3214-3272"><a href="#func-basehandlergetjsonvalue" name="func-basehandlergetjsonvalue" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)GetJsonValue<a name="GetJsonValue"></a></h3>
+            <pre md-pos="3273-3353"><code class="go" md-pos="3279-3349">func (baseHandler *BaseHandler)GetJsonValue(key string) (interface{})
+</code></pre>
+            <p md-pos="3353-3436"><code md-pos="3356-3368">GetJsonValue</code>方法是根据key获取客户端传递的json对象。客户端发送的请求的Content-Type必须是application/json。</p>
+            <h3 id="func-basehandlergetparameter" md-pos="3440-3498"><a href="#func-basehandlergetparameter" name="func-basehandlergetparameter" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)GetParameter<a name="GetParameter"></a></h3>
+            <pre md-pos="3499-3585"><code class="go" md-pos="3505-3581">func (baseHandler *BaseHandler)GetParameter(key string) (value *JsonParams)
+</code></pre>
+            <p md-pos="3585-3624"><code md-pos="3588-3600">GetParameter</code>方法是根据key获取客户端传递的参数值。</p>
+            <ul>
+                <li md-pos="3624-3676">也可以从<code md-pos="3631-3650">baseHandler.Request</code>对象中调用<code md-pos="3657-3664">Request</code>的相关函数获取参数；</li>
+                <li md-pos="3676-3729">可以从URL上获取参数值，或是form中；如果http的body是json，也可以从中解析出参数值。</li>
+            </ul>
+            <h3 id="func-basehandlergetheader" md-pos="3733-3785"><a href="#func-basehandlergetheader" name="func-basehandlergetheader" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)GetHeader<a name="GetHeader"></a></h3>
+            <pre md-pos="3786-3865"><code class="go" md-pos="3792-3861">func (baseHandler *BaseHandler)GetHeader(name string) (value string)
+</code></pre>
+            <p md-pos="3865-3905"><code md-pos="3868-3877">GetHeader</code>方法是根据name获取http的header值。</p>
+            <h3 id="func-basehandlersetheader" md-pos="3909-3961"><a href="#func-basehandlersetheader" name="func-basehandlersetheader" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)SetHeader<a name="SetHeader"></a></h3>
+            <pre md-pos="3962-4040"><code class="go" md-pos="3968-4036">func (baseHandler *BaseHandler)SetHeader(name string, value string)
+</code></pre>
+            <p md-pos="4040-4080"><code md-pos="4043-4052">SetHeader</code>方法是根据name设置http的header值。</p>
+            <h3 id="func-basehandlergetcookie" md-pos="4084-4136"><a href="#func-basehandlergetcookie" name="func-basehandlergetcookie" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)GetCookie<a name="GetCookie"></a></h3>
+            <pre md-pos="4137-4216"><code class="go" md-pos="4143-4212">func (baseHandler *BaseHandler)GetCookie(name string) (value string)
+</code></pre>
+            <p md-pos="4216-4251"><code md-pos="4219-4228">GetCookie</code>方法是根据name获取cookie值。</p>
+            <h3 id="func-basehandlersetcookie" md-pos="4255-4307"><a href="#func-basehandlersetcookie" name="func-basehandlersetcookie" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)SetCookie<a name="SetCookie"></a></h3>
+            <pre md-pos="4308-4386"><code class="go" md-pos="4314-4382">func (baseHandler *BaseHandler)SetCookie(name string, value string)
+</code></pre>
+            <p md-pos="4386-4421"><code md-pos="4389-4398">SetCookie</code>方法是根据name设置cookie值。</p>
+            <h3 id="func-basehandlergetsecurecookie" md-pos="4425-4489"><a href="#func-basehandlergetsecurecookie" name="func-basehandlergetsecurecookie" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)GetSecureCookie<a name="GetSecureCookie"></a></h3>
+            <pre md-pos="4490-4590"><code class="go" md-pos="4496-4586">func (baseHandler *BaseHandler)GetSecureCookie(name string, key ...string) (value string)
+</code></pre>
+            <p md-pos="4590-4678"><code md-pos="4593-4608">GetSecureCookie</code>方法是用来获取加密的cookie值，key为解密所需要用到的密钥，key可以不填，也可以在configuration配置文件中配置。</p>
+            <ul>
+                <li md-pos="4678-4725">当configuration文件和函数参数中都设置了key，则以函数中设置的key为准；</li>
+                <li md-pos="4725-4767">当configuration文件和函数参数中都未设置key，则依然会进行解密。</li>
+            </ul>
+            <h3 id="func-basehandlersetsecurecookie" md-pos="4771-4835"><a href="#func-basehandlersetsecurecookie" name="func-basehandlersetsecurecookie" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)SetSecureCookie<a name="SetSecureCookie"></a></h3>
+            <pre md-pos="4836-4935"><code class="go" md-pos="4842-4931">func (baseHandler *BaseHandler)SetSecureCookie(name string, value string, key ...string)
+</code></pre>
+            <p md-pos="4935-5027"><code md-pos="4938-4953">SetSecureCookie</code>方法是用来给客户端设置一个加密cookie，key为加密所需要用到的密钥，key可以不填，也可以在configuration配置文件中配置。</p>
+            <ul>
+                <li md-pos="5027-5074">当configuration文件和函数参数中都设置了key，则以函数中设置的key为准；</li>
+                <li md-pos="5074-5116">当configuration文件和函数参数中都未设置key，则依然会进行加密。</li>
+            </ul>
+            <h3 id="func-basehandlergetcookieobject" md-pos="5120-5184"><a href="#func-basehandlergetcookieobject" name="func-basehandlergetcookieobject" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)GetCookieObject<a name="GetCookieObject"></a></h3>
+            <pre md-pos="5185-5274"><code class="go" md-pos="5191-5270">func (baseHandler *BaseHandler)GetCookieObject(name ...string) (Cookie, error)
+</code></pre>
+            <p md-pos="5274-5340"><code md-pos="5277-5292">GetCookieObject</code>方法是用来根据name获取指定的cookie对象，返回值类型为<code md-pos="5329-5335">Cookie</code>。</p>
+            <h3 id="func-basehandlersetcookieobject" md-pos="5344-5408"><a href="#func-basehandlersetcookieobject" name="func-basehandlersetcookieobject" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)SetCookieObject<a name="SetCookieObject"></a></h3>
+            <pre md-pos="5409-5481"><code class="go" md-pos="5415-5477">func (baseHandler *BaseHandler)SetCookieObject(cookie Cookie)
+</code></pre>
+            <p md-pos="5481-5537"><code md-pos="5484-5499">SetCookieObject</code>方法接收一个<code md-pos="5511-5517">Cookie</code>对象，为客户端设置cookie。</p>
+            <h3 id="func-basehandlerclearcookie" md-pos="5541-5597"><a href="#func-basehandlerclearcookie" name="func-basehandlerclearcookie" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)ClearCookie<a name="ClearCookie"></a></h3>
+            <pre md-pos="5598-5664"><code class="go" md-pos="5604-5660">func (baseHandler *BaseHandler)ClearCookie(name string)
+</code></pre>
+            <p md-pos="5664-5703"><code md-pos="5667-5678">ClearCookie</code>方法是根据指定的name清除cookie。</p>
+            <h3 id="func-basehandlerclearallcookie" md-pos="5707-5769"><a href="#func-basehandlerclearallcookie" name="func-basehandlerclearallcookie" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)ClearAllCookie<a name="ClearAllCookie"></a></h3>
+            <pre md-pos="5770-5828"><code class="go" md-pos="5776-5824">func (baseHandler *BaseHandler)ClearAllCookie()
+</code></pre>
+            <p md-pos="5828-5867"><code md-pos="5831-5845">ClearAllCookie</code>方法是用来清空所有的cookie的。</p>
+            <h3 id="func-basehandlerredirect" md-pos="5871-5921"><a href="#func-basehandlerredirect" name="func-basehandlerredirect" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)Redirect<a name="Redirect"></a></h3>
+            <pre md-pos="5922-6005"><code class="go" md-pos="5928-6001">func (baseHandler *BaseHandler)Redirect(url string, expire ...time.Time)
+</code></pre>
+            <p md-pos="6005-6094"><code md-pos="6008-6016">Redirect</code>方法是将当前handler所挂载的URL重定向到另一个URL地址，expire为客户端过期时间，如果不填写expire，则会使用客户端默认过期时间。</p>
+            <h3 id="func-basehandlerredirectpermanently" md-pos="6098-6170"><a href="#func-basehandlerredirectpermanently" name="func-basehandlerredirectpermanently" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)RedirectPermanently<a name="RedirectPermanently"></a></h3>
+            <pre md-pos="6171-6244"><code class="go" md-pos="6177-6240">func (baseHandler *BaseHandler)RedirectPermanently(url string)
+</code></pre>
+            <p md-pos="6244-6306"><code md-pos="6247-6266">RedirectPermanently</code>方法是将当前handler所挂载的URL永久性重定向到另一个URL地址。</p>
+            <h3 id="func-basehandler-basehandlerrender" md-pos="6310-6368"><a href="#func-basehandler-basehandlerrender" name="func-basehandler-basehandlerrender" class="anchor"><span class="octicon octicon-link"></span></a>func (baseHandler *BaseHandler)Render<a name="Render"></a></h3>
+            <pre md-pos="6369-6456"><code class="go" md-pos="6375-6452">func (baseHandler *BaseHandler)Render(data interface{}, templates ...string)
+</code></pre>
+            <p md-pos="6456-6506"><code md-pos="6457-6463">Render</code>方法是根据数据和html模板渲染网页，并将渲染后的结果以网页形式相应给客户端。</p>
+            <p md-pos="6507-6513">参数解析：</p>
+            <ul>
+                <li md-pos="6513-6531">data：任意类型结构体实例；</li>
+                <li md-pos="6531-6558">templates：需要渲染的模板文件名称。</li>
+            </ul>
+            <p md-pos="6559-6612"><strong md-pos="6561-6564">注意：</strong><br />
+                如果在配置文件中没有配置template的路径，则此函数选择模板时将会使用相对路径。</p>
+            <h3 id="func-basehandlerresponseashtml" md-pos="6616-6678"><a href="#func-basehandlerresponseashtml" name="func-basehandlerresponseashtml" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)ResponseAsHtml<a name="ResponseAsHtml"></a></h3>
+            <pre md-pos="6679-6750"><code class="go" md-pos="6685-6746">func (baseHandler *BaseHandler)ResponseAsHtml(result string)
+</code></pre>
+            <p md-pos="6750-6797"><code md-pos="6753-6767">ResponseAsHtml</code>方法是将传入的字符串以html文本类型响应给客户端。</p>
+            <h3 id="func-basehandlerresponseastext" md-pos="6801-6863"><a href="#func-basehandlerresponseastext" name="func-basehandlerresponseastext" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)ResponseAsText<a name="ResponseAsText"></a></h3>
+            <pre md-pos="6864-6935"><code class="go" md-pos="6870-6931">func (baseHandler *BaseHandler)ResponseAsText(result string)
+</code></pre>
+            <p md-pos="6935-6982"><code md-pos="6938-6952">ResponseAsText</code>方法是将传入的字符串以text文本类型响应给客户端。</p>
+            <h3 id="func-basehandlerresponseasjson" md-pos="6986-7048"><a href="#func-basehandlerresponseasjson" name="func-basehandlerresponseasjson" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)ResponseAsJson<a name="ResponseAsJson"></a></h3>
+            <pre md-pos="7049-7127"><code class="go" md-pos="7055-7123">func (baseHandler *BaseHandler)ResponseAsJson(response interface{})
+</code></pre>
+            <p md-pos="7127-7196"><code md-pos="7130-7144">ResponseAsJson</code>方法是将传入的对象转换成json字符串，然后响应给客户端，如果转换失败则会向客户端响应空字符串。</p>
+            <h3 id="func-basehandlertojson" md-pos="7200-7246"><a href="#func-basehandlertojson" name="func-basehandlertojson" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)ToJson<a name="ToJson"></a></h3>
+            <pre md-pos="7247-7333"><code class="go" md-pos="7253-7329">func (baseHandler *BaseHandler)ToJson(response interface{}) (result string)
+</code></pre>
+            <p md-pos="7333-7380"><code md-pos="7336-7342">ToJson</code>方法是将一个对象转换成json字符串。如果转换失败则会返回空字符串。</p>
+            <h3 id="func-basehandlerdumphttprequestmsg" md-pos="7384-7454"><a href="#func-basehandlerdumphttprequestmsg" name="func-basehandlerdumphttprequestmsg" class="anchor"><span class="octicon octicon-link"></span></a>func (*BaseHandler)DumpHttpRequestMsg<a name="DumpHttpRequestMsg"></a></h3>
+            <pre md-pos="7455-7545"><code class="go" md-pos="7461-7541">func (baseHandler *BaseHandler)DumpHttpRequestMsg(logLevel int) (result string)
+</code></pre>
+            <p md-pos="7545-7614"><code md-pos="7548-7566">DumpHttpRequestMsg</code>方法是将此次请求的http报文输出到终端或log文件中。<br />
+                参数logLevel如下：</p>
+            <ul>
+                <li md-pos="7614-7663">1: 将http报文输出到trace级别日志中   // logger.TraceLevel</li>
+                <li md-pos="7663-7711">2: 将http报文输出到info级别日志中    // logger.InfoLevel</li>
+                <li md-pos="7711-7762">3: 将http报文输出到warning级别日志中 // logger.WarningLevel</li>
+                <li md-pos="7762-7811">4: 将http报文输出到error级别日志中   // logger.ErrorLevel</li>
+                <li md-pos="7811-7835">others: 将http报文输出到控制台</li>
+            </ul>
+            <h2 id="type-urlpattern" md-pos="7838-7878"><a href="#type-urlpattern" name="type-urlpattern" class="anchor"><span class="octicon octicon-link"></span></a>type UrlPattern<a name="UrlPattern"></a></h2>
+            <pre md-pos="7879-7997"><code class="go" md-pos="7885-7993">type UrlPattern struct {
+    UrlMapping map[string] interface{Handle(http.ResponseWriter, *http.Request)}
+}
+</code></pre>
+            <p md-pos="7997-8034">URL路由设置，使用这个结构体在应用中配置URL与对应的handler。</p>
+            <h3 id="func-urlpattern-urlpatternappendurlpattern" md-pos="8038-8114"><a href="#func-urlpattern-urlpatternappendurlpattern" name="func-urlpattern-urlpatternappendurlpattern" class="anchor"><span class="octicon octicon-link"></span></a>func (urlPattern *UrlPattern)AppendUrlPattern<a name="AppendUrlPattern"></a></h3>
+            <pre md-pos="8115-8240"><code class="go" md-pos="8121-8236">func (urlPattern *UrlPattern)AppendUrlPattern(uri string, v interface{Handle(http.ResponseWriter, *http.Request)})
+</code></pre>
+            <p md-pos="8240-8264">此方法是向指定URL上挂载一个Handler。</p>
+            <h3 id="func-urlpattern-urlpatterninit" md-pos="8268-8320"><a href="#func-urlpattern-urlpatterninit" name="func-urlpattern-urlpatterninit" class="anchor"><span class="octicon octicon-link"></span></a>func (urlPattern *UrlPattern)Init<a name="Init"></a></h3>
+            <pre md-pos="8321-8367"><code class="go" md-pos="8327-8363">func (urlPattern *UrlPattern)Init()
+</code></pre>
+            <p md-pos="8367-8377">初始化URL映射。</p>
+            <h2 id="type-application" md-pos="8380-8422"><a href="#type-application" name="type-application" class="anchor"><span class="octicon octicon-link"></span></a>type Application<a name="Application"></a></h2>
+            <pre md-pos="8423-8602"><code class="go" md-pos="8429-8598">type Application struct {
+    IPAddress  string      // IP地址
+    Port       int         // 端口
+    UrlPattern UrlPattern  // url路由配置
+    ConfigPath string      // 全局配置
+}
+</code></pre>
+            <p md-pos="8602-8630">Application结构体是启动http服务的入口。</p>
+            <ul>
+                <li md-pos="8630-8714">IPAddress：服务绑定的IP地址，可以在configuration中配置，若在configuration中配置了则以configuration中配置的为主；</li>
+                <li md-pos="8714-8786">Port：端口，可以在configuration中配置，若在configuration中配置了则以configuration中配置的为主；</li>
+                <li md-pos="8786-8805">UrlPattern：路由配置；</li>
+                <li md-pos="8805-8827">ConfigPath：配置文件的路径。</li>
+            </ul>
+            <h3 id="func-application-applicationrun" md-pos="8831-8883"><a href="#func-application-applicationrun" name="func-application-applicationrun" class="anchor"><span class="octicon octicon-link"></span></a>func (application *Application)Run<a name="Run"></a></h3>
+            <pre md-pos="8884-8931"><code class="go" md-pos="8890-8927">func (application *Application)Run()
+</code></pre>
+            <p md-pos="8931-8993">此方法用来启动http服务，如果在configuration中配置了https的密钥和证书，服务则会以https方式启动。</p>
+            <h2 id="type-cookie" md-pos="8996-9028"><a href="#type-cookie" name="type-cookie" class="anchor"><span class="octicon octicon-link"></span></a>type Cookie<a name="Cookie"></a></h2>
+            <pre md-pos="9029-9581"><code class="go" md-pos="9035-9577">type Cookie struct {
+    Name        string
+    Value       string
+
+    IsSecurity  bool      // 是否对cookie值进行加密
+    SecurityKey string    // 加密cookie用到的key
+
+    Path        string    // 可选
+    Domain      string    // 可选
+    Expires     time.Time // 可选
+    RawExpires  string    // 只有在读取Cookie时有效
+
+    // MaxAge=0 表示未指定“Max-Age”属性
+    // MaxAge&lt;0 表示现在删除cookie，相当于'Max-Age：0'
+    // MaxAge&gt;0 表示Max-Age属性存在并以秒为单位给出
+    MaxAge      int
+    Secure      bool
+    HttpOnly    bool
+    Raw         string
+    Unparsed  []string    // 原始文本中未解析的属性值
+}
+</code></pre>
+            <p md-pos="9581-9608">cookie结构体，用此结构体进行cookie处理。</p>
+            <h3 id="func-cookie-cookiegetcookieencodevalue" md-pos="9612-9688"><a href="#func-cookie-cookiegetcookieencodevalue" name="func-cookie-cookiegetcookieencodevalue" class="anchor"><span class="octicon octicon-link"></span></a>func (cookie *Cookie)GetCookieEncodeValue<a name="GetCookieEncodeValue"></a></h3>
+            <pre md-pos="9689-9758"><code class="go" md-pos="9695-9754">func (cookie *Cookie)GetCookieEncodeValue()(result string)
+</code></pre>
+            <p md-pos="9758-9777">使用此方法获取cookie的加密值。</p>
+            <h3 id="func-cookie-cookiegetcookiedecodevalue" md-pos="9781-9857"><a href="#func-cookie-cookiegetcookiedecodevalue" name="func-cookie-cookiegetcookiedecodevalue" class="anchor"><span class="octicon octicon-link"></span></a>func (cookie *Cookie)GetCookieDecodeValue<a name="GetCookieDecodeValue"></a></h3>
+            <pre md-pos="9858-9927"><code class="go" md-pos="9864-9923">func (cookie *Cookie)GetCookieDecodeValue()(result string)
+</code></pre>
+            <p md-pos="9927-9946">使用此方法获取cookie的解密值。</p>
+            <h3 id="func-cookie-cookietohttpcookie" md-pos="9950-10010"><a href="#func-cookie-cookietohttpcookie" name="func-cookie-cookietohttpcookie" class="anchor"><span class="octicon octicon-link"></span></a>func (cookie *Cookie)ToHttpCookie<a name="ToHttpCookie"></a></h3>
+            <pre md-pos="10011-10070"><code class="go" md-pos="10017-10066">func (cookie *Cookie)ToHttpCookie()(http.Cookie)
+</code></pre>
+            <p md-pos="10070-10102">使用此方法将Cookie对象转换为http.Cookie对象。</p>
+            <h3 id="func-cookie-cookieconvertfromhttpcookie" md-pos="10106-10184"><a href="#func-cookie-cookieconvertfromhttpcookie" name="func-cookie-cookieconvertfromhttpcookie" class="anchor"><span class="octicon octicon-link"></span></a>func (cookie *Cookie)ConvertFromHttpCookie<a name="ConvertFromHttpCookie"></a></h3>
+            <pre md-pos="10185-10262"><code class="go" md-pos="10191-10258">func (cookie *Cookie)ConvertFromHttpCookie(httpCookie http.Cookie)
+</code></pre>
+            <p md-pos="10262-10294">使用此方法将http.Cookie对象转换为Cookie对象。</p>
+            <h3 id="func-cookie-cookiesetsecuritykey" md-pos="10298-10362"><a href="#func-cookie-cookiesetsecuritykey" name="func-cookie-cookiesetsecuritykey" class="anchor"><span class="octicon octicon-link"></span></a>func (cookie *Cookie)SetSecurityKey<a name="SetSecurityKey"></a></h3>
+            <pre md-pos="10363-10421"><code class="go" md-pos="10369-10417">func (cookie *Cookie)SetSecurityKey(key string)
+</code></pre>
+            <p md-pos="10421-10444">使用此方法为cookie对象设置加密key。</p>
+            <h2 id="type-baseresponse" md-pos="10447-10491"><a href="#type-baseresponse" name="type-baseresponse" class="anchor"><span class="octicon octicon-link"></span></a>type BaseResponse<a name="BaseResponse"></a></h2>
+            <pre md-pos="10492-10532"><code class="go" md-pos="10498-10528">type BaseResponse struct {
+
+}
+</code></pre>
+            <p md-pos="10532-10637">继承此结构体的对象可以通过<code md-pos="10548-10612">func (baseHandler *BaseHandler)ResponseAsJson(response Response)</code>方法，序列化为json字符串传递给客户端。</p>
+            <h3 id="func-baseresponse-baseresponseprint" md-pos="10641-10699"><a href="#func-baseresponse-baseresponseprint" name="func-baseresponse-baseresponseprint" class="anchor"><span class="octicon octicon-link"></span></a>func (baseResponse *BaseResponse)Print<a name="Print"></a></h3>
+            <pre md-pos="10700-10749"><code class="nohighlight" md-pos="10704-10745">func (baseResponse *BaseResponse)Print()
+</code></pre>
+            <p md-pos="10749-10777">使用此方法可以打印当前Response对象到控制台中。</p>
+            <h3 id="func-baseresponse-baseresponsetojson" md-pos="10781-10849"><a href="#func-baseresponse-baseresponsetojson" name="func-baseresponse-baseresponsetojson" class="anchor"><span class="octicon octicon-link"></span></a>func (baseResponse *BaseResponse)ToJson<a name="ResponseToJson"></a></h3>
+            <pre md-pos="10850-10909"><code class="nohighlight" md-pos="10854-10905">func (baseResponse *BaseResponse)ToJson() (string)
+</code></pre>
+            <p md-pos="10909-10940">使用此方法将当前Response对象序列化为json字符串。</p>
+            <h2 id="type-globalconfig" md-pos="10943-10987"><a href="#type-globalconfig" name="type-globalconfig" class="anchor"><span class="octicon octicon-link"></span></a>type GlobalConfig<a name="GlobalConfig"></a></h2>
+            <pre md-pos="10988-11373"><code class="go" md-pos="10994-11369">type GlobalConfig struct {
+	IP       string           `json:&quot;ip&quot;`        // IP地址
+	Port     int              `json:&quot;port&quot;`      // 端口
+	Cert     string           `json:&quot;cert&quot;`      // https证书路径
+	CertKey  string           `json:&quot;cert_key&quot;`  // https密钥路径
+	Cookie   string           `json:&quot;cookie&quot;`    // cookie加密解密的密钥
+	Log      logger.LogLevel  `json:&quot;log&quot;`       // log相关属性配置
+}
+</code></pre>
+            <h3 id="func-globalconfig-globalconfiginit" md-pos="11377-11439"><a href="#func-globalconfig-globalconfiginit" name="func-globalconfig-globalconfiginit" class="anchor"><span class="octicon octicon-link"></span></a>func (globalConfig *GlobalConfig)Init<a name="GlobalInit"></a></h3>
+            <pre md-pos="11440-11507"><code class="go" md-pos="11446-11503">func (globalConfig *GlobalConfig)Init(configPath string)
+</code></pre>
+            <p md-pos="11507-11528">根据配置文件初始化全局配置对象。
+                解析：</p>
+            <ul>
+                <li md-pos="11528-11540">IP：配置服务地址</li>
+                <li md-pos="11540-11557">Port：配置服务绑定的端口</li>
+                <li md-pos="11557-11574">Cert：https证书地址</li>
+                <li md-pos="11574-11592">CertKey：https密钥</li>
+                <li md-pos="11592-11617">Cookie：cookie加密解密使用的密钥</li>
+                <li md-pos="11617-11661">Log：log相关属性的配置，Tigo.logger.LogLevel结构体的实例</li>
+            </ul>
+            <p md-pos="11662-11690">配置文件configuration.json示例如下：</p>
+            <pre md-pos="11690-11916"><code class="javascript" md-pos="11704-11912">{
+    &quot;ip&quot;: &quot;0.0.0.0&quot;,
+    &quot;port&quot;: 8888,
+    &quot;cert&quot;: &quot;/home/work/certfile.ext&quot;
+    &quot;cert_key&quot;: &quot;/home/work/certkeyfile.ext&quot;,
+    &quot;log_path&quot;: &quot;/home/work/log/server_run.log&quot;,
+    &quot;cookie&quot;: &quot;thisiscookiekey&quot;
+}
+</code></pre>
+            <h2 id="type-reqparams" md-pos="11919-11957"><a href="#type-reqparams" name="type-reqparams" class="anchor"><span class="octicon octicon-link"></span></a>type ReqParams<a name="ReqParams"></a></h2>
+            <pre md-pos="11958-12014"><code class="go" md-pos="11964-12010">type JsonParams struct {
+	Value interface{}
+}
+</code></pre>
+            <p md-pos="12014-12091"><code md-pos="12015-12039">BaseHandler.GetParameter</code>返回此类型的实例，<code md-pos="12050-12055">Value</code>为<code md-pos="12058-12067">interface</code>类型，可以按照具体需求转换为自己需要的类型。</p>
+            <ul>
+                <li md-pos="12091-12119"><code md-pos="12094-12100">ToBool</code>: 将Value转换为bool类型</li>
+                <li md-pos="12119-12153"><code md-pos="12122-12131">ToFloat64</code>: 将Value转换为float64类型</li>
+                <li md-pos="12153-12183"><code md-pos="12156-12163">ToInt64</code>: 将Value转换为int64类型</li>
+                <li md-pos="12183-12215"><code md-pos="12186-12194">ToString</code>: 将Value转换为string类型</li>
+                <li md-pos="12215-12238"><code md-pos="12218-12220">To</code>: 将Value转换为自定义类型</li>
+            </ul>
+            <h2 id="utils" md-pos="12241-12266"><a href="#utils" name="utils" class="anchor"><span class="octicon octicon-link"></span></a>utils<a name="utils"></a></h2>
+            <p md-pos="12267-12294">加密方法<a name="Encrypt"></a></p>
+            <pre md-pos="12294-12347"><code class="go" md-pos="12300-12343">func Encrypt(src[]byte, key []byte) string
+</code></pre>
+            <p md-pos="12347-12393">使用此方法对字符数组进行aes加密。
+                解密方法<a name="Decrypt"></a></p>
+            <pre md-pos="12393-12448"><code class="go" md-pos="12399-12444">func Decrypt(src[]byte, key []byte) ([]byte)
+</code></pre>
+            <p md-pos="12448-12512">使用此方法对已加密的字符数组进行aes解密。
+                初始化全局变量方法<a name="InitGlobalConfig"></a></p>
+            <pre md-pos="12512-12563"><code class="go" md-pos="12518-12559">func InitGlobalConfig(configPath string)
+</code></pre>
+            <p md-pos="12563-12577">使用此方法初始化全局变量。</p>
+            <h1 id="tigologger" md-pos="12579-12611"><a href="#tigologger" name="tigologger" class="anchor"><span class="octicon octicon-link"></span></a>Tigo.logger<a name="logger"></a></h1>
+            <p md-pos="12612-12624">使用此模块打印log。</p>
+            <h2 id="demo" md-pos="12627-12653"><a href="#demo" name="demo" class="anchor"><span class="octicon octicon-link"></span></a>Demo<a name="logDemo"></a></h2>
+            <p md-pos="12654-12686">在Tigo框架中使用log模块，只要按照如下示例编写代码即可：</p>
+            <pre md-pos="12686-13363"><code class="go" md-pos="12692-13359">// 在Tigo框架中使用logger模块
+package main
+
+import (
+    &quot;net/http&quot;
+    &quot;github.com/karldoenitz/Tigo/TigoWeb&quot;
+    &quot;github.com/karldoenitz/Tigo/logger&quot;
+)
+
+type HelloHandler struct {
+    TigoWeb.BaseHandler
+}
+
+func (helloHandler *HelloHandler)Get() {
+    logger.Info.Printf(&quot;info data: %s&quot;, &quot;test&quot;) // 此处打印log
+    helloHandler.ResponseAsHtml(&quot;&lt;p1 style='color: red'&gt;Hello Tigo!&lt;/p1&gt;&quot;)
+}
+
+var urls = map[string]interface{}{
+    &quot;/hello-tigo&quot;: &amp;HelloHandler{},
+}
+
+func main() {
+    application := TigoWeb.Application{
+        UrlPattern: urls,
+        ConfigPath: &quot;./configuration.json&quot;,  // 此处配置文件，如果不适用配置文件，可以在代码中初始化LogLevel对象，使用该对象进行logger模块初始化。
+    }
+    application.Run()
+}
+</code></pre>
+            <p md-pos="13363-13395"><code md-pos="13366-13384">configuration.json</code>文件内容如下：</p>
+            <pre md-pos="13395-13790"><code class="JavaScript" md-pos="13409-13786">{
+  &quot;cookie&quot;: &quot;TencentCode&quot;,
+  &quot;ip&quot;: &quot;0.0.0.0&quot;,
+  &quot;port&quot;: 8080,
+  &quot;log&quot;: {
+    &quot;trace&quot;: &quot;stdout&quot;,  // trace的内容只在终端输出，不在文件内保留
+    &quot;info&quot;: &quot;/Users/karllee/Desktop/run-info.log&quot;,  // info的内容存在run-info.log文件中
+    &quot;warning&quot;: &quot;/Users/karllee/Desktop/run.log&quot;,  // warning与error的日志存在同一个文件内
+    &quot;error&quot;: &quot;/Users/karllee/Desktop/run.log&quot;,
+    &quot;time_roll&quot;: &quot;H*2&quot;  // 表示每两个小时切分一次日志
+  }
+}
+</code></pre>
+            <p md-pos="13790-13938">以上为在Tigo框架中使用logger模块，如果想在第三方代码中使用logger模块，而不是在Tigo中，则可以参考<code md-pos="13849-13905">func (globalConfig *GlobalConfig)Init(configPath string)</code>方法，使用LogLevel或是配置文件初始化logger模块。</p>
+            <h2 id="structure" md-pos="13941-13977"><a href="#structure" name="structure" class="anchor"><span class="octicon octicon-link"></span></a>Structure<a name="LogStructure"></a></h2>
+            <p md-pos="13978-13992">log模块所包含的结构体。</p>
+            <h3 id="type-loglevel" md-pos="13996-14032"><a href="#type-loglevel" name="type-loglevel" class="anchor"><span class="octicon octicon-link"></span></a>type LogLevel<a name="LogLevel"></a></h3>
+            <pre md-pos="14033-14414"><code class="go" md-pos="14039-14410">// log分级结构体
+//   - Trace    跟踪
+//   - Info     信息
+//   - Warning  预警
+//   - Error    错误
+//   - TimeRoll 日志切分时长
+// discard: 丢弃，stdout: 终端输出，文件路径表示log具体输出的位置
+type LogLevel struct {
+    Trace    string   `json:&quot;trace&quot;`
+    Info     string   `json:&quot;info&quot;`
+    Warning  string   `json:&quot;warning&quot;`
+    Error    string   `json:&quot;error&quot;`
+    TimeRoll string   `json:&quot;time_roll&quot;`
+}
+</code></pre>
+            <p md-pos="14414-14486">初始化此结构体，将此结构体作为参数传入<code md-pos="14436-14456">InitLoggerWithObject</code>中，初始化logger模块。<br />
+                TimeRoll：</p>
+            <ul>
+                <li md-pos="14486-14520">D：表示按天切分日志，例如：&quot;D*6&quot;则表示每6天切分一次日志</li>
+                <li md-pos="14520-14556">H：表示按小时切分日志，例如：&quot;H*6&quot;则表示每6小时切分一次日志</li>
+                <li md-pos="14556-14592">M：表示按分钟切分日志，例如：&quot;M*6&quot;则表示每6分钟切分一次日志</li>
+                <li md-pos="14592-14626">S：表示按秒切分日志，例如：&quot;S*6&quot;则表示每6秒切分一次日志</li>
+            </ul>
+            <h2 id="logger模块内置方法" md-pos="14629-14671"><a href="#logger模块内置方法" name="logger模块内置方法" class="anchor"><span class="octicon octicon-link"></span></a>logger模块内置方法<a name="loggerFunctions"></a></h2>
+            <h3 id="func-setlogpath" md-pos="14676-14716"><a href="#func-setlogpath" name="func-setlogpath" class="anchor"><span class="octicon octicon-link"></span></a>func SetLogPath<a name="SetLogPath"></a></h3>
+            <p md-pos="14717-14728">设置log文件的路径</p>
+            <pre md-pos="14728-14770"><code class="go" md-pos="14734-14766">func SetLogPath(logPath string)
+</code></pre>
+            <p md-pos="14770-14774">示例：</p>
+            <pre md-pos="14774-14933"><code class="go" md-pos="14780-14929">import &quot;github.com/karldoenitz/Tigo/logger&quot;
+
+logger.Info.Printf(&quot;It is a test...&quot;)
+logger.Warning.Printf(&quot;warning!&quot;)
+logger.Error.Printf(&quot;ERROR!!!&quot;)
+</code></pre>
+            <p md-pos="14933-14955">注意：使用此方法会使原先的log配置失效。</p>
+            <h3 id="func-initloggerwithconfigfile" md-pos="14959-15027"><a href="#func-initloggerwithconfigfile" name="func-initloggerwithconfigfile" class="anchor"><span class="octicon octicon-link"></span></a>func InitLoggerWithConfigFile<a name="InitLoggerWithConfigFile"></a></h3>
+            <pre md-pos="15028-15085"><code class="go" md-pos="15034-15081">func InitLoggerWithConfigFile(filePath string)
+</code></pre>
+            <p md-pos="15085-15104">根据配置文件初始化logger模块。</p>
+            <h3 id="func-initloggerwithobject" md-pos="15108-15168"><a href="#func-initloggerwithobject" name="func-initloggerwithobject" class="anchor"><span class="octicon octicon-link"></span></a>func InitLoggerWithObject<a name="InitLoggerWithObject"></a></h3>
+            <pre md-pos="15169-15224"><code class="go" md-pos="15175-15220">func InitLoggerWithObject(logLevel LogLevel)
+</code></pre>
+            <p md-pos="15224-15249">根据LogLevel实例初始化logger模块。</p>
+            <h3 id="func-inittrace" md-pos="15253-15291"><a href="#func-inittrace" name="func-inittrace" class="anchor"><span class="octicon octicon-link"></span></a>func InitTrace<a name="InitTrace"></a></h3>
+            <pre md-pos="15292-15331"><code class="go" md-pos="15298-15327">func InitTrace(level string)
+</code></pre>
+            <p md-pos="15331-15349">初始化Trace实例。
+                参数解释：</p>
+            <ul>
+                <li md-pos="15349-15364">discard：不处理；</li>
+                <li md-pos="15364-15387">stdout： 终端输出，不打印到文件；</li>
+                <li md-pos="15387-15409">文件具体路径：存储log的文件的路径。</li>
+            </ul>
+            <h3 id="func-initinfo" md-pos="15413-15449"><a href="#func-initinfo" name="func-initinfo" class="anchor"><span class="octicon octicon-link"></span></a>func InitInfo<a name="InitInfo"></a></h3>
+            <pre md-pos="15450-15488"><code class="go" md-pos="15456-15484">func InitInfo(level string)
+</code></pre>
+            <p md-pos="15488-15505">初始化Info实例。
+                参数解释：</p>
+            <ul>
+                <li md-pos="15505-15520">discard：不处理；</li>
+                <li md-pos="15520-15543">stdout： 终端输出，不打印到文件；</li>
+                <li md-pos="15543-15565">文件具体路径：存储log的文件的路径。</li>
+            </ul>
+            <h3 id="func-initwarning" md-pos="15569-15611"><a href="#func-initwarning" name="func-initwarning" class="anchor"><span class="octicon octicon-link"></span></a>func InitWarning<a name="InitWarning"></a></h3>
+            <pre md-pos="15612-15653"><code class="go" md-pos="15618-15649">func InitWarning(level string)
+</code></pre>
+            <p md-pos="15653-15673">初始化Warning实例。
+                参数解释：</p>
+            <ul>
+                <li md-pos="15673-15688">discard：不处理；</li>
+                <li md-pos="15688-15711">stdout： 终端输出，不打印到文件；</li>
+                <li md-pos="15711-15733">文件具体路径：存储log的文件的路径。</li>
+            </ul>
+            <h3 id="func-initerror" md-pos="15737-15775"><a href="#func-initerror" name="func-initerror" class="anchor"><span class="octicon octicon-link"></span></a>func InitError<a name="InitError"></a></h3>
+            <pre md-pos="15776-15815"><code class="go" md-pos="15782-15811">func InitError(level string)
+</code></pre>
+            <p md-pos="15815-15835">初始化Error实例。<br />
+                参数解释：</p>
+            <ul>
+                <li md-pos="15835-15850">discard：不处理；</li>
+                <li md-pos="15850-15873">stdout： 终端输出，不打印到文件；</li>
+                <li md-pos="15873-15895">文件具体路径：存储log的文件的路径。</li>
+            </ul>
+            <h1 id="tigorequest" md-pos="15897-15931"><a href="#tigorequest" name="tigorequest" class="anchor"><span class="octicon octicon-link"></span></a>Tigo.request<a name="request"></a></h1>
+            <p md-pos="15932-15996">request模块是Tigo框架中用来进行http request请求的模块，可使用此模块内的方法对目标连接发送http请求。</p>
+            <h2 id="type-response" md-pos="15999-16039"><a href="#type-response" name="type-response" class="anchor"><span class="octicon octicon-link"></span></a>type Response<a name="httpResponse"></a></h2>
+            <pre md-pos="16040-16113"><code class="go" md-pos="16046-16109">type Response struct {
+    *http.Response
+    Content []byte
+}
+</code></pre>
+            <p md-pos="16113-16126">HTTP请求返回的对象。</p>
+            <h3 id="func-response-responsetocontentstr" md-pos="16130-16193"><a href="#func-response-responsetocontentstr" name="func-response-responsetocontentstr" class="anchor"><span class="octicon octicon-link"></span></a>func (response *Response)ToContentStr<a name="InitWarning"></a></h3>
+            <pre md-pos="16194-16251"><code class="go" md-pos="16200-16247">func (response *Response)ToContentStr() string
+</code></pre>
+            <p md-pos="16251-16283">将Response对象的Content转换为string类型。</p>
+            <h2 id="request模块内置方法" md-pos="16286-16330"><a href="#request模块内置方法" name="request模块内置方法" class="anchor"><span class="octicon octicon-link"></span></a>request模块内置方法<a name="requestFunctions"></a></h2>
+            <h3 id="func-request" md-pos="16335-16369"><a href="#func-request" name="func-request" class="anchor"><span class="octicon octicon-link"></span></a>func Request<a name="Request"></a></h3>
+            <pre md-pos="16370-16511"><code class="go" md-pos="16376-16507">func Request(method string, requestUrl string, postParams map[string]interface{}, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="16511-16522">向一个连接发送请求。</p>
+            <h3 id="func-get" md-pos="16526-16552"><a href="#func-get" name="func-get" class="anchor"><span class="octicon octicon-link"></span></a>func Get<a name="Get"></a></h3>
+            <pre md-pos="16553-16640"><code class="go" md-pos="16559-16636">func Get(requestUrl string, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="16640-16654">向一个连接发送Get请求。</p>
+            <h3 id="func-post" md-pos="16658-16686"><a href="#func-post" name="func-post" class="anchor"><span class="octicon octicon-link"></span></a>func Post<a name="Post"></a></h3>
+            <pre md-pos="16687-16810"><code class="go" md-pos="16693-16806">func Post(requestUrl string, postParams map[string]interface{}, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="16810-16825">向一个连接发送Post请求。</p>
+            <h3 id="func-put" md-pos="16829-16855"><a href="#func-put" name="func-put" class="anchor"><span class="octicon octicon-link"></span></a>func Put<a name="Put"></a></h3>
+            <pre md-pos="16856-16978"><code class="go" md-pos="16862-16974">func Put(requestUrl string, postParams map[string]interface{}, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="16978-16992">向一个连接发送Put请求。</p>
+            <h3 id="func-patch" md-pos="16996-17026"><a href="#func-patch" name="func-patch" class="anchor"><span class="octicon octicon-link"></span></a>func Patch<a name="Patch"></a></h3>
+            <pre md-pos="17027-17151"><code class="go" md-pos="17033-17147">func Patch(requestUrl string, postParams map[string]interface{}, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="17151-17167">向一个连接发送Patch请求。</p>
+            <h3 id="func-head" md-pos="17171-17199"><a href="#func-head" name="func-head" class="anchor"><span class="octicon octicon-link"></span></a>func Head<a name="Head"></a></h3>
+            <pre md-pos="17200-17288"><code class="go" md-pos="17206-17284">func Head(requestUrl string, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="17288-17303">向一个连接发送Head请求。</p>
+            <h3 id="func-options" md-pos="17307-17341"><a href="#func-options" name="func-options" class="anchor"><span class="octicon octicon-link"></span></a>func Options<a name="Options"></a></h3>
+            <pre md-pos="17342-17433"><code class="go" md-pos="17348-17429">func Options(requestUrl string, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="17433-17451">向一个连接发送Options请求。</p>
+            <h3 id="func-delete" md-pos="17455-17487"><a href="#func-delete" name="func-delete" class="anchor"><span class="octicon octicon-link"></span></a>func Delete<a name="Delete"></a></h3>
+            <pre md-pos="17488-17578"><code class="go" md-pos="17494-17574">func Delete(requestUrl string, headers ...map[string]string) (*Response, error)
+</code></pre>
+            <p md-pos="17578-17595">向一个连接发送Delete请求。</p>
+        </article>
+    </div>
+</div>
+<script>hljs.initHighlightingOnLoad();</script></body>
+</html>
