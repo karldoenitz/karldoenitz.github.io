@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/prettify.css">
     <link rel="shortcut icon" href=" ./img/favicon.ico" />
 </head>
-<body>
+<body  onload="prettyPrint()">
 <div class="wrapper">
 
     <header>
@@ -26,18 +26,22 @@
                 <li><strong style="color: black">快速入门</strong></li>
                 <li><a href="#welcome" class="cc-active">简介</a></li>
                 <li><a href="#benefits" class="cc-active">安装及示例</a></li>
+                <li><a href="#tigo-structure" class="cc-active">Tigo的架构</a></li>
                 <li class="separator"></li>
                 <li><strong style="color: black">API文档</strong></li>
                 <li><a href="#zh_doc" class="cc-active">中文文档</a></li>
                 <li class="separator"></li>
                 <li><strong style="color: black">文档</strong></li>
-                <li><a href="#sample_list" class="cc-active">文档下载</a></li>
+                <li><a href="#doc_list" class="cc-active">文档下载</a></li>
+                <li class="separator"></li>
+                <li><strong style="color: black">应用实例</strong></li>
+                <li><a href="#sample_list" class="cc-active">应用实例列表</a></li>
             </ul>
             <div class="docs-content">
                 <img src="https://github.com/karldoenitz/Tigo/raw/master/documentation/tigo_logo.jpg"/>
                 <h2  style="background-color: #f5f5f5">📖快速入门</h2>
                 <h3 id="welcome"> 简介 </h3>
-                <p> Tigo 框架是一款使用go语言开发的基于net/http库的web应用框架。</p>
+                <p> Tigo 框架是一款使用go语言开发的基于net/http库的web应用框架。开发人员也可以在Tigo框架中使用net/http库的API。</p>
 
                 <p> Tigo 框架可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，
                     主要设计灵感来源于 tornado 框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
@@ -84,8 +88,7 @@ func main() {
         UrlPattern: urls,
     }
     application.Run()
-}
-                </pre>
+}</pre>
                 <span>编译：</span><code style="background-color: #f5f5f5"> go build main.go &nbsp;</code>
                 <span>启动：</span><code style="background-color: #f5f5f5"> ./main &nbsp;</code>
                 <p>此时访问：<a href="http://127.0.0.1:8888/test-json" target="_blank">http://127.0.0.1:8888/test-json</a> 可以获取如下json数据。</p>
@@ -93,8 +96,10 @@ func main() {
 {
     "status": 0,
     "value": "Hello Tigo!"
-}
-                </pre>
+}</pre>
+                <h3 id="tigo-structure">Tigo的架构</h3>
+                <p>Tigo的整体设计架构如下所示</p>
+                <img src="./statics/tigo_structure.png"/>
                 <p class="separator"></p>
                 <h2 style="background-color: #f5f5f5">📖API文档</h2>
                 <h3 id="zh_doc"> 中文文档 </h3>
@@ -212,10 +217,17 @@ func main() {
                 </ul>
                 <p class="separator"></p>
                 <h2  style="background-color: #f5f5f5">📖文档</h2>
-                <h3 id="sample_list">文档下载</h3>
+                <h3 id="doc_list">文档下载</h3>
                 <ul>
-                    <li><a href="./statics/documentation.pdf">中文文档</a></li>
-                    <li><a href="./statics/documentation_en.pdf">English Documentation</a></li>
+                    <li><a href="./statics/documentation.pdf" target="_blank">中文文档</a></li>
+                    <li><a href="./statics/documentation_en.pdf" target="_blank">English Documentation</a></li>
+                </ul>
+                <p class="separator"></p>
+                <h2  style="background-color: #f5f5f5">📖应用实例</h2>
+                <h3 id="sample_list">应用实例列表</h3>
+                <ul>
+                    <li><a href="./source/HelloTigo.zip" target="_blank">HelloTigo</a></li>
+                    <li><a href="./source/TaxCalculator.zip" target="_blank">个税计算器</a></li>
                 </ul>
                 <img src="https://github.com/karldoenitz/karlooper/raw/master/documentations/images/logo.jpg"/>
             </div>
@@ -230,9 +242,9 @@ func main() {
         </div>
     </footer>
 </div>
-<script src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/prettify/prettify.js"></script>
-<script src="https://cdn.bootcss.com/prettify/r298/run_prettify.js"></script>
-<script src="js/layout.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/prettify/prettify.js"></script>
+<script src="./js/prettify/run_prettify.js"></script>
+<script src="./js/layout.js"></script>
 </body>
 </html>
