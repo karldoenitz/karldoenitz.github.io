@@ -7,7 +7,7 @@ body, html {
     padding: 0;
 }
 
-body, 
+body,
 input,
 h1,
 h2,
@@ -15,7 +15,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Raleway", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "Raleway", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     font-size: 18px;
 }
@@ -35,35 +35,53 @@ iframe {
 }
 
 img {
-    height:auto;
+    height: auto;
 }
 
-.btn {background:#135571;color:#fff;
+.btn {
+    background: #135571;
+    color: #fff;
 
-		-webkit-transition: all 250ms;
-        -moz-transition: all 250ms;
-        -o-transition: all  250ms;
-        transition: all  250ms;
-		
-		}
-		
-.btn:hover {background:#333; }
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -o-transition: all 250ms;
+    transition: all 250ms;
 
-.btn-download { border-radius:0 4px 0 0; font-weight:bold; width: 25px;  overflow: hidden;}
+}
 
-.btn-download  img {  width: 25px;
-  float: left;
-  margin-top: 18px;
-  margin-right: 15px
-  }
- 
-.btn-download:hover { width:165px;} 
+.btn:hover {
+    background: #333;
+}
+
+.btn-download {
+    border-radius: 0 4px 0 0;
+    font-weight: bold;
+    width: 25px;
+    overflow: hidden;
+}
+
+.btn-download img {
+    width: 25px;
+    float: left;
+    margin-top: 18px;
+    margin-right: 15px
+}
+
+.btn-download:hover {
+    width: 165px;
+}
 
 iframe {
     border: 0 !important;
 }
 
-.wrapper { margin:20px 40px ; border-radius:4px; box-shadow:0 0 2px 2px rgba(155,155,155,0.1); border:1px solid #d3d3d3;}
+.wrapper {
+    margin: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px rgba(155, 155, 155, 0.1);
+    border: 1px solid #d3d3d3;
+}
+
 header {
     width: 100%;
     overflow: hidden;
@@ -90,7 +108,6 @@ h6 {
     color: inherit;
     text-rendering: optimizelegibility;
 }
-
 
 h1,
 h2,
@@ -133,12 +150,12 @@ blockquote {
     text-align: left;
 }
 
-.copyrights{
-	text-indent:-9999px;
-	height:0;
-	line-height:0;
-	font-size:0;
-	overflow:hidden;
+.copyrights {
+    text-indent: -9999px;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
 }
 
 dt {
@@ -169,12 +186,11 @@ a:active {
 /* Header Styles */
 
 header {
-    padding: 2em 0 2em 0; 
-    
-    background: #26abe2; 
+    padding: 2em 0 2em 0;
+
+    background: #26abe2;
     color: #fff;
 }
-
 
 h1 {
     margin: 0;
@@ -193,8 +209,8 @@ header h2.lone-header {
 footer {
     text-align: center;
     padding: 1.5em 0;
-	background:#fff;
-	border-radius:0 0 4px 4px;
+    background: #fff;
+    border-radius: 0 0 4px 4px;
 }
 
 footer p {
@@ -202,15 +218,20 @@ footer p {
     color: #999;
 }
 
-.pull-right{ float:right;}
-.pull-left { float:left; }
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
 
 /* Navigation Styles */
 nav {
     background: #fff;
     padding: 0;
     min-height: 60px;
-	border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
 }
 
 nav ul, nav li {
@@ -221,8 +242,8 @@ nav ul, nav li {
 
 nav a {
     padding: 0 1em;
-	text-decoration:none !important;
-	font-size: .9em;
+    text-decoration: none !important;
+    font-size: .9em;
     height: 60px;
     line-height: 60px;
     display: block;
@@ -232,25 +253,26 @@ nav h1 a {
     padding: 7px 1em;
     height: 46px;
     line-height: 0;
-	height: 45px;
-	line-height: 60px;
-	color: #000;
+    height: 45px;
+    line-height: 60px;
+    color: #000;
 }
 
-nav h1 a img {   margin-right: 10px;
-  float: left;
-  margin-top: 9px;
-  }
-  
- nav h1 a  span {  float: left;
-  margin-top: -5px;}
+nav h1 a img {
+    margin-right: 10px;
+    float: left;
+    margin-top: 9px;
+}
+
+nav h1 a span {
+    float: left;
+    margin-top: -5px;
+}
 
 nav a:active {
     color: #fff;
-    cursor: default;  
+    cursor: default;
 }
-
-
 
 nav ul.site {
     padding: 20px 0 0 0;
@@ -262,7 +284,6 @@ nav #menu {
     clear: left;
 }
 
-
 nav #menu-toggle {
     position: absolute;
     right: 0;
@@ -270,7 +291,6 @@ nav #menu-toggle {
     font-size: 1.5em;
     padding: 0 16px;
 }
-
 
 @media only screen and (min-width: 680px) {
     nav, nav #menu {
@@ -280,7 +300,6 @@ nav #menu-toggle {
     nav li, nav a {
         float: left;
     }
-
 
     nav ul.site {
         float: left;
@@ -302,39 +321,41 @@ nav #menu-toggle {
     }
 }
 
-
-
-
-
-
-
-
-
-
 /* Content Styles */
-section { padding: 1em 0 3em; text-align: center; }
-section.vibrant { background: #222; color: #fff; }
-section.vibrant h4{  
-  line-height: 2;
-  font-weight: normal;
-  width: 90%;
-  margin: 0 auto;
-  }
+section {
+    padding: 1em 0 3em;
+    text-align: center;
+}
 
-nav:before, 
-nav:after, 
-header:before, 
-header:after, 
-section:before, 
+section.vibrant {
+    background: #222;
+    color: #fff;
+}
+
+section.vibrant h4 {
+    line-height: 2;
+    font-weight: normal;
+    width: 90%;
+    margin: 0 auto;
+}
+
+nav:before,
+nav:after,
+header:before,
+header:after,
+section:before,
 section:after {
     content: " ";
     display: table;
 }
 
-nav:after, header:after, section:after  { clear: both; }
-nav, header, section { *zoom: 1; }
+nav:after, header:after, section:after {
+    clear: both;
+}
 
-
+nav, header, section {
+    *zoom: 1;
+}
 
 /* Form Styles */
 input {
@@ -345,9 +366,9 @@ input {
     width: 100%;
     max-width: 400px;
 
-       -moz-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
 
     -webkit-transition: all linear 0.2s;
     -moz-transition: all linear 0.2s;
@@ -355,45 +376,10 @@ input {
     transition: all linear 0.2s;
 }
 
-
-
-
-
-
-
 input:focus {
     border-color: #007eb2;
     outline: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .docs-nav {
     background-color: #f5f5f5;
@@ -401,6 +387,7 @@ input:focus {
     margin: 0 0 0 20px;
     padding: 15px 20px;
     font-size: 0.97em;
+    border-radius: 10px;
 }
 
 .docs-nav a {
@@ -420,7 +407,7 @@ input:focus {
 }
 
 @media only screen and (min-width: 960px) {
-        .docs-nav {
+    .docs-nav {
         position: absolute;
         top: 0;
         width: 220px;
@@ -439,13 +426,13 @@ input:focus {
 
     .docs-nav a:hover {
         background: #26ABE2;
-		color:#fff;
+        color: #fff;
     }
 
-    .docs-nav a:active, 
+    .docs-nav a:active,
     .docs-nav .active {
         background: #26ABE2;
-		color:#fff;
+        color: #fff;
         border-right: 2px solid #ccc;
     }
 
@@ -457,10 +444,8 @@ input:focus {
         padding-left: 310px;
     }
 
-
-
     header {
-        padding: 1em 0 1em 0; 
+        padding: 1em 0 1em 0;
     }
 
     .container {
@@ -468,24 +453,19 @@ input:focus {
         padding: 0 20px;
     }
 
-    section { padding: 3em 0; text-align: left;   background: #fff;}
+    section {
+        padding: 3em 0;
+        text-align: left;
+        background: #fff;
+    }
+
     section.centered {
         text-align: center;
     }
 
-
-
-
-
-
-
-
-
     input {
         display: inline-block;
     }
-
-
 
 }
 
