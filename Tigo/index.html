@@ -34,6 +34,9 @@
                 <li><strong style="color: black">文档</strong></li>
                 <li><a href="#doc_list" class="cc-active">文档下载</a></li>
                 <li class="separator"></li>
+                <li><strong style="color: black">发布</strong></li>
+                <li><a href="#release_history" class="cc-active">发布历史</a></li>
+                <li class="separator"></li>
                 <li><strong style="color: black">应用实例</strong></li>
                 <li><a href="#sample_list" class="cc-active">应用实例列表</a></li>
             </ul>
@@ -99,140 +102,23 @@ func main() {
 }</pre>
                 <h3 id="tigo-structure">Tigo的架构</h3>
                 <p>Tigo的整体设计架构如下所示</p>
-                <img src="./statics/tigo_structure.png"/>
+                <img src="./statics/tigo_structure.png" style="width: 50%; height: 50%"/>
                 <p class="separator"></p>
                 <h2 style="background-color: #f5f5f5">📖API文档</h2>
                 <h3 id="zh_doc"> 中文文档 </h3>
-                <p>文档索引</p>
-                <ul>
-                    <li><a target='_blank' href="./documentation.html#TigoWeb">TigoWeb</a>
-                        <ul>
-                            <li><a target='_blank' href="./documentation.html#BaseHandler">type BaseHandler</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#InitHandler">func InitHandler</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetJsonValue">func GetJsonValue</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetParameter">func GetParameter</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetHeader">func GetHeader</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetHeader">func SetHeader</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetCtxVal">func GetCtxVal</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetCtxVal">func SetCtxVal</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetCookie">func GetCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetCookie">func SetCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetSecureCookie">func GetSecureCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetSecureCookie">func SetSecureCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetCookieObject">func GetCookieObject</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetCookieObject">func SetCookieObject</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ClearCookie">func ClearCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ClearAllCookie">func ClearAllCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Redirect">func Redirect</a></li>
-                                    <li><a target='_blank' href="./documentation.html#RedirectPermanently">func RedirectPermanently</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ResponseAsHtml">func ResponseAsHtml</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ResponseAsText">func ResponseAsText</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ResponseAsJson">func ResponseAsJson</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ToJson">func ToJson</a></li>
-                                    <li><a target='_blank' href="./documentation.html#DumpHttpRequestMsg">func DumpHttpRequestMsg</a></li>
-                                    <li><a target='_blank' href="./documentation.html#CheckJsonBinding">func CheckJsonBinding</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#UrlPattern">type UrlPattern</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#AppendUrlPattern">func AppendUrlPattern</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Init">func Init</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#Application">type Application</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#Run">func Run</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#Cookie">type Cookie</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#GetCookieEncodeValue">func GetCookieEncodeValue</a></li>
-                                    <li><a target='_blank' href="./documentation.html#GetCookieDecodeValue">func GetCookieDecodeValue</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ToHttpCookie">func ToHttpCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ConvertFromHttpCookie">func ConvertFromHttpCookie</a></li>
-                                    <li><a target='_blank' href="./documentation.html#SetSecurityKey">func SetSecurityKey</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#BaseResponse">type BaseResponse</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#Print">func Print</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ResponseToJson">func ToJson</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#GlobalConfig">type GlobalConfig</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#GlobalInit">func Init</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#utils">utils</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#Encrypt">func Encrypt</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Decrypt">func Decrypt</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitGlobalConfig">func InitGlobalConfig</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a target='_blank' href="./documentation.html#logger">logger</a>
-                        <ul>
-                            <li><a target='_blank' href="./documentation.html#logDemo">Demo</a></li>
-                            <li><a target='_blank' href="./documentation.html#LogStructure">structure</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#LogLevel">type LogLevel</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#loggerFunctions">functions</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#SetLogPath">func SetLogPath</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitLoggerWithConfigFile">func InitLoggerWithConfigFile</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitLoggerWithObject">func InitLoggerWithObject</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitTrace">func InitTrace</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitInfo">func InitInfo</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitWarning">func InitWarning</a></li>
-                                    <li><a target='_blank' href="./documentation.html#InitError">func InitError</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a target='_blank' href="./documentation.html#request">request</a>
-                        <ul>
-                            <li><a target='_blank' href="./documentation.html#httpResponse">type Response</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#ToContentStr">ToContentStr</a></li>
-                                </ul>
-                            </li>
-                            <li><a target='_blank' href="./documentation.html#requestFunctions">functions</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#Request">func Request</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Get">func Get</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Post">func Post</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Put">func Put</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Patch">func Patch</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Head">func Head</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Options">func Options</a></li>
-                                    <li><a target='_blank' href="./documentation.html#Delete">func Delete</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a target='_blank' href="./documentation.html#binding">binding</a>
-                        <ul>
-                            <li><a target='_blank' href="./documentation.html#bindingFunctions">functions</a>
-                                <ul>
-                                    <li><a target='_blank' href="./documentation.html#ParseJsonToInstance">func ParseJsonToInstance</a></li>
-                                    <li><a target='_blank' href="./documentation.html#ValidateInstance">func ValidateInstance</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                <span>也可以通过<a href="https://godoc.org/github.com/karldoenitz/Tigo" target="_blank">GoDoc</a>查看最新API文档</span>
                 <p class="separator"></p>
                 <h2  style="background-color: #f5f5f5">📖文档</h2>
                 <h3 id="doc_list">文档下载</h3>
                 <ul>
                     <li><a href="./statics/documentation.pdf" target="_blank">中文文档</a></li>
                     <li><a href="./statics/documentation_en.pdf" target="_blank">English Documentation</a></li>
+                </ul>
+                <p class="separator"></p>
+                <h2  style="background-color: #f5f5f5">📖发布历史</h2>
+                <h3 id="release_history">发布</h3>
+                <ul>
+                    可<a href="https://github.com/karldoenitz/Tigo/releases" target="_blank">点击此处</a>查看发布历史。
                 </ul>
                 <p class="separator"></p>
                 <h2  style="background-color: #f5f5f5">📖应用实例</h2>
