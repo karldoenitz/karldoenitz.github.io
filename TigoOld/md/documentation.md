@@ -1,6 +1,6 @@
 ![Tigo logo](https://github.com/karldoenitz/Tigo/blob/master/documentation/tigo_logo.jpg "this is Tigo logo")
 # Documentation
-Tigo is a web framework developed in go language, based on net/http. In order to build web server quickly.
+TigoOld is a web framework developed in go language, based on net/http. In order to build web server quickly.
 # Install
 ```
 go get github.com/karldoenitz/Tigo/...
@@ -51,7 +51,7 @@ The info will display in terminal：
 ```
 INFO: 2018/07/09 15:02:36 Application.go:22: Server run on: 0.0.0.0:8888
 ```
-Open web browser and visit ```http://127.0.0.1:8888/hello-tigo```, you will see <font color=red>Hello Tigo</font>.
+Open web browser and visit ```http://127.0.0.1:8888/hello-tigo```, you will see <font color=red>Hello TigoOld</font>.
 # API index:
 - [TigoWeb](#TigoWeb)
   - [type BaseHandler](#BaseHandler)
@@ -127,7 +127,7 @@ Open web browser and visit ```http://127.0.0.1:8888/hello-tigo```, you will see 
     - [func ParseJsonToInstance](#ParseJsonToInstance)
     - [func ValidateInstance](#ValidateInstance)
 # Tigo.TigoWeb<a name="TigoWeb"></a>
-TigoWeb is the core part of Tigo framework, it contains Handler,URLpattern and Application.
+TigoWeb is the core part of TigoOld framework, it contains Handler,URLpattern and Application.
 ## type BaseHandler<a name="BaseHandler"></a>
 ```go
 type BaseHandler struct {
@@ -310,7 +310,7 @@ Post的json：
 } // error "password is required"
 // age default value is 18
 ```
-reference `Tigo.binding.ValidateInstance`
+reference `TigoOld.binding.ValidateInstance`
 ## type UrlPattern<a name="UrlPattern"></a>
 ```go
 type UrlPattern struct {
@@ -337,7 +337,7 @@ type Application struct {
     ConfigPath string      // global config
 }
 ```
-Application is the launcher of web server developed by Tigo.
+Application is the launcher of web server developed by TigoOld.
 - IPAddress: IP address, developers can config IP address in configuration file;
 - Port: Port, developers can configure it in configuration file;
 - UrlPattern: url mapping.
@@ -436,7 +436,7 @@ Glance:
 - Cert: the path of https cert file
 - CertKey: the path of https key file
 - Cookie: the key to encrypt/decrypt cookie
-- Log: the instance of Tigo.logger.LogLevel
+- Log: the instance of TigoOld.logger.LogLevel
 
 configuration.json example：
 ```javascript
@@ -468,7 +468,7 @@ Use this method to initialize global configuration.
 # Tigo.logger<a name="logger"></a>
 Use this package to print log.
 ## Demo<a name="logDemo"></a>
-The demo about using ```logger``` package in the web application developed by Tigo.
+The demo about using ```logger``` package in the web application developed by TigoOld.
 ```go
 package main
 
@@ -514,7 +514,7 @@ func main() {
   }
 }
 ```
-If you wanna use logger package in your application not base on Tigo, you can use `func (globalConfig *GlobalConfig)Init(configPath string)` function to initialize logger package.
+If you wanna use logger package in your application not base on TigoOld, you can use `func (globalConfig *GlobalConfig)Init(configPath string)` function to initialize logger package.
 ## Structure<a name="LogStructure"></a>
 The structure in logger package:
 ### type LogLevel<a name="LogLevel"></a>
@@ -602,7 +602,7 @@ Parameter values:
 - stdout: print log message in console;
 - real file path: the path of log file.
 # Tigo.request<a name="request"></a>
-Tigo.request provides some functions to request an url.
+TigoOld.request provides some functions to request an url.
 ## type Response<a name="httpResponse"></a>
 ```go
 type Response struct {
