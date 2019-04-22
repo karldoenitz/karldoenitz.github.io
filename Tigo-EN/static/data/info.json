@@ -1,0 +1,13 @@
+{
+  "author": "karl",
+  "tigo": {
+    "version": "1.0.7",
+    "link": "https://github.com/karldoenitz/Tigo",
+    "website": "https://karldoenitz.github.io/Tigo/"
+  },
+  "tiger": {
+    "version": "1.0.0",
+    "link": "https://github.com/karldoenitz/tiger",
+    "website": "https://karldoenitz.github.io/Tigo/"
+  }
+}
